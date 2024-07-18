@@ -1,7 +1,6 @@
-GotoDocumentation
-===========================
-A Sublime Text plugin to jump to documentation for the current keyword.
+# Goto Documentation
 
+A Sublime Text plugin to jump to documentation for the current keyword.
 
 ## Supports
 
@@ -23,28 +22,28 @@ A Sublime Text plugin to jump to documentation for the current keyword.
  * Haskell
  * ...you can add any other language via settings
 
+## Installation
 
-Installation
---------------
+Clone this project in your Packages folder under the name `GotoDocumentation`.
 
-**Via Package Control**  
-Search for `GotoDocumentation`
+```sh
+git clone https://github.com/gerardroche/sublime-goto-documentation.git GotoDocumentation
+```
 
-**Manually**  
-Clone this project in your Packages folder under the name `GotoDocumentation`.  
-`git clone https://github.com/kemayo/sublime-text-2-goto-documentation.git GotoDocumentation`
+## How to use
 
-
-How to use
-----------------
 Move the cursor inside the word you want the docs for and: 
- * Press `Super+Shift+H` or  
- * Open command palette (Ctrl+Shift+P) and search for for GotoDocumentation
+
+* Press `Super+Shift+H` or
+* Open command palette (Ctrl+Shift+P) and search for for GotoDocumentation
 
 ## Edit the urls
+
 GotoDocumentation allows you to edit the url that opens by editing the settings.
+
 ### The available settings are:
-```json
+
+```js
 {
     "prefix": "", // added at the begging of the query
     "suffix": "", // added at the end of the query
@@ -81,20 +80,15 @@ GotoDocumentation allows you to edit the url that opens by editing the settings.
 }
 
 ```
+
 The change replace is done with the [`re.sub`](https://docs.python.org/2/library/re.html#re.sub) method 
 
 ## How to get the scope
-To get the scope for a specific place open your sublime console with `` ctrl + ` `` and paste in this command
-`view.scope_name(view.sel()[0].begin()).rpartition('.')[2].strip()`  
-You can then use that scope to set a rule in the `docs` dictionary(object).
 
+To get the scope for a specific place open your sublime console with `` ctrl + ` `` and paste in this command:
 
-Contributions
------------------
-Submit a patch adding more and I'll include it.  
+```py
+view.scope_name(view.sel()[0].begin()).rpartition('.')[2].strip()
+```
 
-If you find a bug or have suggestions open an issue [here](https://github.com/kemayo/sublime-text-2-goto-documentation/issues)
-
-
-
-
+You can then use that scope to set a rule in the `docs` dictionary (object).
